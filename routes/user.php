@@ -20,3 +20,5 @@ Route::get("{idUser}", 'UserController@editar')->name('user.edit');
 Route::post("procesar", 'UserController@store')->name('user.store');
 
 Route::put("procesar/{persona}", 'UserController@update')->name('user.update');
+
+Route::delete("{id}", 'UserController@delete')->name("user.delete");

@@ -34,4 +34,60 @@ personas.forEach(per => {
 
     window.location = "user/" + idPersona;
   })
-})
+});
+
+$(".eliminar-persona").submit(function(e){
+  return false;
+});
+
+$(".eliminar-persona button").click(function(e){
+  const stringToSeparated = e.currentTarget.id;
+  const idPersona = stringToSeparated.split("-")[1];
+  eliminarAjax(idPersona, this);
+});
+
+function token(idPersona){
+  let tok = $("#token-" + idPersona).val();
+  console.log(tok)
+  return tok;
+}
+
+function eliminarAjax(idPersona, element){
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': token(idPersona)
+    }
+  });
+
+  $.ajax(
+    {
+        url: "user/" + idPersona,
+        type: 'delete', // replaced from put
+        dataType: "JSON",
+        data: {
+            "id": idPersona // method and token not needed in data
+        },
+        success: function (response)
+        {
+            if(!response.ok) // see the reponse sent
+            {
+              $("fallo-eliminar").modal({
+                keyboard: true,
+                show: true
+              });
+              return;
+            }
+
+            quitarForm(element);
+        },
+        error: function(xhr) {
+         console.log(xhr.responseText); // this line will save you tons of hours while debugging
+        // do something here because of error
+       }
+    });
+}
+
+
+function quitarForm(element){
+  $(element).closest("tr").remove();
+}

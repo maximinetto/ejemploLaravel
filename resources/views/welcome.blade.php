@@ -23,13 +23,27 @@
             <td> {{ $persona->apellido }} </td>
             <td> {{ $persona->ci }} </td>
             <td>
-                <button class="btn btn-success" id="{{ "persona-$persona->id" }}">
-                    <i class="fas fa-user-edit"></i>
-                </button>
+                <div class="row">
+
+                    <button class="btn btn-success" id="{{ "persona-$persona->id" }}">
+                        <i class="fas fa-user-edit"></i>
+                    </button>
+                    <form method="POST" class="eliminar-persona">
+                        <input type="hidden" name="_token" id="token-{{$persona->id}}" value="{{ csrf_token() }}">
+                        <button class="btn btn-danger" id="{{ "eliminar-$persona->id" }}">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+
+                </div>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
+@endsection
+
+@section('modal')
+@include('partials.modal')
 @endsection

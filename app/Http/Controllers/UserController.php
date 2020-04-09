@@ -42,6 +42,16 @@ class UserController extends Controller{
         return $exito ? redirect('/') : redirect('user/$persona->id');
     }
 
+    public function delete($id){
+        $persona = Persona::find($id);
+        $exito = $persona->delete();
+        $jsonResponse = $exito 
+        ? ['ok' => true, "message" => "Se ha eliminado el registro"]
+        : ['ok' => false, "message" => "Hubo un error al eliminar el registro"];
+        
+        return response()->json($jsonResponse); 
+    }
+
     public function crear(){
         return view("user_form", [  
            "persona" => new Persona()
