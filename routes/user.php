@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get("{idUser}", 'UserController@editar');
+
+Route::post("procesar", 'UserController@store');
