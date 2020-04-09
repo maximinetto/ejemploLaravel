@@ -25,3 +25,13 @@
     false
   );
 })();
+
+let personas = document.querySelectorAll("[id^='persona-']");
+personas.forEach(per => {
+  per.addEventListener("click", (ev) => {
+    const stringToConvert = per.id;
+    const idPersona = stringToConvert.split("-")[1];
+
+    window.location = "user/" + idPersona;
+  })
+})

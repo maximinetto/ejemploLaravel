@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view("user_form");
-});
+Route::get('/', 'UserController@crear')->name('user.create');
 
-Route::get("{idUser}", 'UserController@editar');
+Route::get("{idUser}", 'UserController@editar')->name('user.edit');
 
-Route::post("procesar", 'UserController@store');
+Route::post("procesar", 'UserController@store')->name('user.store');
+
+Route::put("procesar/{persona}", 'UserController@update')->name('user.update');

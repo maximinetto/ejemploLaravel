@@ -12,6 +12,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Cédula</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,11 @@
             <td> {{ $persona->nombre }} </td>
             <td> {{ $persona->apellido }} </td>
             <td> {{ $persona->ci }} </td>
+            <td>
+                <button class="btn btn-success" id="{{ "persona-$persona->id" }}">
+                    <i class="fas fa-user-edit"></i>
+                </button>
+            </td>
         </tr>
         @endforeach
     </tbody>

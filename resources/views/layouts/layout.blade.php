@@ -13,6 +13,7 @@
     <!-- Styles -->
 
     <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/main.css" />
 
@@ -37,6 +38,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
     <script src="/main.js" type="text/javascript"></script>
 </body>
 
